@@ -12,7 +12,7 @@ const newReceipt = new Schema({
         city: String,
         zipCode: Number,
         phone: Number,
-        items: Array,
+        items: [{itemName:String, itemCategory:String, itemQuantity:Number, itemTotalCost:Number}],
         taxAmount: Number,
         totalAmount: Number
     },
