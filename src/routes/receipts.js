@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const addReceipts = require("../controllers/addReceipts");
-const itemizedList = require("../controllers/itemizedList");
+const controller = require("../controllers/receipts");
 
-router.post("/addReceipts", addReceipts);
-router.get("/getItemsList", itemizedList);
+router.post("/addReceipts", controller.addReceipts);
+router.get("/getItemsList", controller.itemizedList);
 
 module.exports = router;

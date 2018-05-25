@@ -1,10 +1,18 @@
-const {addReceiptsModel} = require("../models/addReceipts");
-const {itemizedListModel} = require("../models/itemizedList");
+const addReceipts = require('../models/receipts');
 
-export const addReceipts = (req, res, next)=>{
-
+exports.addReceipts = (req, res, next)=>{
+    const newReceipt = new addReceipts(req.body.receipt);
+    newReceipt.save()
+        .then(data => {
+            res.send(data);
+        }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while creating the Note."
+        });
+    });
 };
 
-export const itemizedList = (req, res, next)=>{
-
+exports.itemizedList = (req, res, next)=>{
+    console.log(req.query.duration);
+    res.send({data:"something"});
 };
