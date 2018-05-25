@@ -1,1 +1,1 @@
-exports.dbURL = "mongodb://localhost:27017/test";
+exports.dbURL = "mongodb://localhost:27017/receipt";
