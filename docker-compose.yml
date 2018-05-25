@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  api:
+    container_name: api
+    hostname: api.byra.com
+    build: .
+    volumes:
+      - ./src:/app/src
+    ports:
+      - '8282:8282'
+    links:
+      - mongo
+
+  mongo:
+    container_name: db
+    hostname: db.byra.com
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - /data/db
