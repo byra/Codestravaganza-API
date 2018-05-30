@@ -16,6 +16,7 @@ app.use(function (req,res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
+app.use("/receipt", receiptRouter);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbURL)
@@ -25,7 +26,6 @@ mongoose.connect(dbURL)
     console.log('Could not connect to the database. Exiting now...');
     process.exit();
 });
-app.use("/receipt", receiptRouter);
 
 
 

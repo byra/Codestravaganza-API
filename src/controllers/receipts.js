@@ -13,7 +13,6 @@ exports.addReceipts = (req, res, next)=>{
 };
 
 exports.itemizedList = (req, res, next)=>{
-    console.log(new Date(req.query.fromDate));
     addReceipts.find().where("date").gt(new Date(req.query.fromDate)).lt(req.query.toDate).select({"_id": false,"consumer": true, "totalAmount":true})
         .then(rawList => {
             res.send(groupBy(rawList));
